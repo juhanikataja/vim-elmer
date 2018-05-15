@@ -1,21 +1,21 @@
 " Forptran file settings ---------- {{{
-augroup filetype_fortran
-  autocmd!
-	autocmd FileType fortran set foldmethod=syntax
-  autocmd FileType fortran nnoremap <buffer> <localleader>c 0i!<esc>j
-  autocmd FileType fortran nnoremap <buffer> <localleader>wf :execute(":call ElmerFortranRegion('FUNCTION')")<cr>7kf(a
-  autocmd FileType fortran nnoremap <buffer> <localleader>ws :execute(":call ElmerFortranRegion('SUBROUTINE')")<cr>7kf(a
-  autocmd FileType fortran nnoremap <buffer> <localleader>wm :execute(":call ElmerFortranRegion('MODULE')")<cr>4ka
-	autocmd FileType fortran set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
-augroup END
+" augroup filetype_fortran
+"   autocmd!
+" 	autocmd FileType fortran set foldmethod=syntax
+"   autocmd FileType fortran nnoremap <buffer> <localleader>c 0i!<esc>j
+"   autocmd FileType fortran nnoremap <buffer> <localleader>wf :execute(":call ElmerFortranRegion('FUNCTION')")<cr>7kf(a
+"   autocmd FileType fortran nnoremap <buffer> <localleader>ws :execute(":call ElmerFortranRegion('SUBROUTINE')")<cr>7kf(a
+"   autocmd FileType fortran nnoremap <buffer> <localleader>wm :execute(":call ElmerFortranRegion('MODULE')")<cr>4ka
+" 	autocmd FileType fortran set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
+" augroup END
 " }}}
 " Elmer Sif file settings ---------- {{{
-augroup filetype_sif
-  autocmd!
-	autocmd FileType sif set foldmethod=syntax
-  autocmd FileType sif nnoremap <buffer> <localleader>c 0i!<esc>j
-  autocmd FileType sif nnoremap <localleader>e :call ToggleEmpyLines()<cr>
-augroup END
+" augroup filetype_sif
+"   autocmd!
+"   autocmd FileType sif set foldmethod=syntax
+"   autocmd FileType sif nnoremap <buffer> <localleader>c 0i!<esc>j
+"   autocmd FileType sif nnoremap <localleader>e :call ToggleEmpyLines()<cr>
+" augroup END
 " }}}
 " Fortran templates ------------- {{{
 function! Add_with_lnum(lines, line)
@@ -28,7 +28,7 @@ function! ElmerFortranRegion(type)
 	let name=expand(@")
 	let lines=[]
 	let decor='!-------------------------------------------------------------------'
-	
+
 	let lines=Add_with_lnum(lines, decor)
 	if a:type=='MODULE'
 	  let lines=Add_with_lnum(lines, " ".a:type." ".name)
